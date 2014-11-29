@@ -52,7 +52,7 @@ public class NxtRemoteMotorController implements MotorController {
             byte motorMode = 0;
             byte motorRunState = 0;
             byte motorRegMode = 0;
-            if (motorState.motor < 0 || motorState.motor > 2) {
+            if (motorState.motor != 0xff && (motorState.motor < 0 || motorState.motor > 2)) {
                 throw new IllegalArgumentException("NxtRemoteMotorController::setMotorStates: motor state has invalid motor number (" + motorState.motor + ")");
             }
             if (motorState.power < -100 || motorState.power > 100) {
